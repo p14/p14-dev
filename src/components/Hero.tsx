@@ -29,9 +29,10 @@ const Hero: React.FC = () => {
         </Typography>
 
         <Typography variant='body1' color='black'>
-          I am currently working at {currentJob}.
-          I have a passion for creating creative and functional websites and I focus on writing efficient, maintainable, and scalable code.
-          When I am not coding, I enjoy capturing the Pacific Northwest through film photography.
+          I'm based out of Seattle, Washington and I'm currently working at {currentJob}.
+          I have a passion for building creative and functional websites.
+          I focus on writing efficient, maintainable, and scalable code.
+          When I'm not coding, I enjoy capturing the Pacific Northwest through film photography.
         </Typography>
 
         <Box sx={heroLinksWrapperStyles}>
