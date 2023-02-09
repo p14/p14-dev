@@ -1,8 +1,11 @@
-export const heroWrapperStyles = {
-  display: 'block',
+export const heroContainerStyles = {
+  display: 'flex',
+  flexDirection: 'column',
   justifyContent: 'center',
-  minHeight: (window.innerHeight - 100),
-  mt: '100px',
+  flexGrow: 1,
+};
+
+export const heroWrapperStyles = {
   textAlign: 'center',
 };
 

@@ -1,11 +1,11 @@
 import React from 'react'
 import { Box, Container, IconButton, Typography } from '@mui/material';
-import { GitHub, Instagram, LinkedIn } from '@mui/icons-material';
-import { heroHeadingStyles, heroLinksWrapperStyles, heroWrapperStyles, profileImageStyles } from '../styles/hero.styles';
+import { GitHub, LinkedIn, Send } from '@mui/icons-material';
+import { heroHeadingStyles, heroLinksWrapperStyles, heroWrapperStyles, profileImageStyles, heroContainerStyles } from '../styles/hero.styles';
 
 const Hero: React.FC = () => {
   return (
-    <Container maxWidth='md'>
+    <Container maxWidth='md' sx={heroContainerStyles}>
       <Box sx={heroWrapperStyles}>
         <Box
           component='img'
@@ -35,8 +35,8 @@ const Hero: React.FC = () => {
           <IconButton color='inherit' href='https://linkedin.com/in/perezident14' target='_blank' rel='noopener noreferrer'>
             <LinkedIn fontSize='large' />
           </IconButton>
-          <IconButton color='inherit' href='https://instagram.com/perezident14' target='_blank' rel='noopener noreferrer'>
-            <Instagram fontSize='large' />
+          <IconButton color='inherit' href='mailto:joseph@p14.dev' target='_blank' rel='noopener noreferrer'>
+            <Send fontSize='large' />
           </IconButton>
         </Box>
       </Box>
