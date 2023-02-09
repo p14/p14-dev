@@ -1,9 +1,15 @@
 import React from 'react'
 import { Box, Container, IconButton, Typography } from '@mui/material';
 import { GitHub, LinkedIn, Send } from '@mui/icons-material';
-import { heroHeadingStyles, heroLinksWrapperStyles, heroWrapperStyles, profileImageStyles, heroContainerStyles } from '../styles/hero.styles';
+import { heroHeadingStyles, heroLinksWrapperStyles, heroWrapperStyles, profileImageStyles, heroContainerStyles, heroTextLinkStyles } from '../styles/hero.styles';
 
 const Hero: React.FC = () => {
+  const currentJob = (
+    <Typography component='a' href='https://inquired.org' target='_blank' rel='noopener noreferrer' sx={heroTextLinkStyles}>
+      inquirED
+    </Typography>
+  );
+
   return (
     <Container maxWidth='md' sx={heroContainerStyles}>
       <Box sx={heroWrapperStyles}>
@@ -23,8 +29,8 @@ const Hero: React.FC = () => {
         </Typography>
 
         <Typography variant='body1' color='black'>
-          I have a passion for creating creative and functional websites.
-          I focus on writing efficient, maintainable, scalable, and easy to read code.
+          I am currently working at {currentJob}.
+          I have a passion for creating creative and functional websites and I focus on writing efficient, maintainable, and scalable code.
           When I am not coding, I enjoy capturing the Pacific Northwest through film photography.
         </Typography>
 

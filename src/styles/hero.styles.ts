@@ -22,6 +22,13 @@ export const heroHeadingStyles = {
   textTransform: 'uppercase',
 };
 
+export const heroTextLinkStyles = {
+  color: 'inherit',
+  '&:hover': {
+    color: '#636363',
+  },
+};
+
 export const heroLinksWrapperStyles = {
   display: 'flex',
   justifyContent: 'center',

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, ThemeProvider, createTheme } from '@mui/material';
 import Hero from './components/Hero';
-import { standardFont } from './styles/global.styles';
 import Footer from './components/Footer';
+import { appContainerStyles, standardFont } from './styles/global.styles';
 
 const App: React.FC = () => {
   const theme = createTheme({
@@ -13,7 +13,7 @@ const App: React.FC = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <Box sx={appContainerStyles}>
         <Hero />
         <Footer />
       </Box>
