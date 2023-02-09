@@ -12,14 +12,39 @@ export const heroWrapperStyles = {
 export const profileImageStyles = {
   border: '1px solid rgba(0, 0, 0, 0.12)',
   borderRadius: '50%',
-  height: 300,
+  height: {
+    xs: 200,
+    sm: 300,
+  },
   my: 2,
   width: 'auto',
 };
 
-export const heroHeadingStyles = {
+const heroHeadingStyles = {
   my: 1,
   textTransform: 'uppercase',
+};
+
+export const heroTitleStyles = {
+  ...heroHeadingStyles,
+  fontSize: {
+    xs: '1.25rem',
+    sm: '2rem',
+  },
+  fontWeight: {
+    xs: 600,
+  },
+};
+
+export const heroSubtitleStyles = {
+  ...heroHeadingStyles,
+  fontSize: {
+    xs: '1rem',
+    sm: '1.25rem',
+  },
+  fontWeight: {
+    xs: 600,
+  },
 };
 
 export const heroTextLinkStyles = {

@@ -11,5 +11,8 @@ export const standardFont = [
 export const appContainerStyles = {
   display: 'flex',
   flexDirection: 'column',
-  minHeight: '100vh',
+  minHeight: {
+    xs: '85vh',
+    sm: '100vh',
+  },
 };

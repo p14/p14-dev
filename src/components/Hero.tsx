@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Container, IconButton, Typography } from '@mui/material';
 import { GitHub, LinkedIn, Send } from '@mui/icons-material';
-import { heroHeadingStyles, heroLinksWrapperStyles, heroWrapperStyles, profileImageStyles, heroContainerStyles, heroTextLinkStyles } from '../styles/hero.styles';
+import { heroLinksWrapperStyles, heroWrapperStyles, profileImageStyles, heroContainerStyles, heroTextLinkStyles, heroTitleStyles, heroSubtitleStyles } from '../styles/hero.styles';
 
 const Hero: React.FC = () => {
   const currentJob = (
@@ -20,11 +20,11 @@ const Hero: React.FC = () => {
           sx={profileImageStyles}
         />
 
-        <Typography component='h4' variant='h4' sx={heroHeadingStyles}>
+        <Typography component='h4' variant='h4' sx={heroTitleStyles}>
           Joseph Perez
         </Typography>
 
-        <Typography component='h6' variant='h6' sx={heroHeadingStyles}>
+        <Typography component='h6' variant='h6' sx={heroSubtitleStyles}>
           Web Developer & Photographer
         </Typography>
 
