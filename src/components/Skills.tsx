@@ -1,7 +1,8 @@
 import React from 'react'
-import { Box, Container } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 import { skillsCardWrapperStyles } from '../styles/skills.styles';
 import SkillsCard from './cards/SkillsCard';
+import { scriptFont } from '../styles/global.styles';
 
 const Skills: React.FC = () => {
   const backEndSkills = [
@@ -33,6 +34,9 @@ const Skills: React.FC = () => {
 
   return (
     <Container maxWidth='lg'>
+      <Typography variant='h4' sx={{ fontFamily: scriptFont }}>
+        Skills:
+      </Typography>
       <Box sx={skillsCardWrapperStyles}>
         <SkillsCard
           imageAlt='hello world'
@@ -48,7 +52,7 @@ const Skills: React.FC = () => {
         />
         <SkillsCard
           imageAlt='hello world'
-          imagePath='./assets/PFP2.jpg'
+          imagePath='./assets/devops.png'
           skills={devOpsSkills}
           title='DevOps Engineering'
         />

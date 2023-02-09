@@ -1,16 +1,21 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { ThemeProvider, createTheme } from '@mui/material';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import Skills from './components/Skills';
+import { standardFont } from './styles/global.styles';
 
 const App: React.FC = () => {
+  const theme = createTheme({
+    typography: {
+      fontFamily: standardFont,
+    }
+  });
+
   return (
-    <Box>
+    <ThemeProvider theme={theme}>
       <Header />
       <Hero />
-      <Skills />
-    </Box>
+    </ThemeProvider>
   );
 }
 

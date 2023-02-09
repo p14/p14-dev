@@ -14,15 +14,15 @@ const Hero: React.FC = () => {
           sx={profileImageStyles}
         />
 
-        <Typography component='h3' variant='h3' sx={heroHeadingStyles}>
+        <Typography component='h4' variant='h4' sx={heroHeadingStyles}>
           Joseph Perez
         </Typography>
 
-        <Typography component='h5' variant='h5' sx={heroHeadingStyles}>
+        <Typography component='h6' variant='h6' sx={heroHeadingStyles}>
           Web Developer & Photographer
         </Typography>
 
-        <Typography variant='body1'>
+        <Typography variant='body1' color='black'>
           I have a passion for creating creative and functional websites.
           I focus on writing efficient, maintainable, scalable, and easy to read code.
           When I am not coding, I enjoy capturing the Pacific Northwest through film photography.

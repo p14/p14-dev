@@ -7,6 +7,7 @@ export const heroWrapperStyles = {
 };
 
 export const profileImageStyles = {
+  border: '1px solid rgba(0, 0, 0, 0.12)',
   borderRadius: '50%',
   height: 300,
   my: 2,
@@ -15,6 +16,7 @@ export const profileImageStyles = {
 
 export const heroHeadingStyles = {
   my: 1,
+  textTransform: 'uppercase',
 };
 
 export const heroLinksWrapperStyles = {

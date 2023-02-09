@@ -1,3 +1,5 @@
+import { scriptFont } from './global.styles';
+
 export const appBarStyles = {
   boxShadow: 'none',
 };
@@ -12,11 +14,6 @@ export const toolBarStyles = {
   }
 };
 
-const headingFonts = [
-  'Covered By Your Grace',
-  'sans-serif',
-].join(', ');
-
 export const headingStyles = {
-  fontFamily: headingFonts,
+  fontFamily: scriptFont,
 };
