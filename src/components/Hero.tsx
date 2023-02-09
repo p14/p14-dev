@@ -15,7 +15,7 @@ const Hero: React.FC = () => {
       <Box sx={heroWrapperStyles}>
         <Box
           component='img'
-          src='./assets/PFP2.jpg'
+          src='./assets/profile.jpg'
           alt='A head shot of Joseph in Chicago, Illinois'
           sx={profileImageStyles}
         />
