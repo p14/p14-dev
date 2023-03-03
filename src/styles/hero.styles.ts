@@ -1,15 +1,15 @@
-export const heroContainerStyles = {
+export const container = {
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
   flexGrow: 1,
 };
 
-export const heroWrapperStyles = {
+export const wrapper = {
   textAlign: 'center',
 };
 
-export const profileImageStyles = {
+export const profileImage = {
   border: '1px solid rgba(0, 0, 0, 0.12)',
   borderRadius: '50%',
   height: {
@@ -20,13 +20,13 @@ export const profileImageStyles = {
   width: 'auto',
 };
 
-const heroHeadingStyles = {
+const heading = {
   my: 1,
   textTransform: 'uppercase',
 };
 
-export const heroTitleStyles = {
-  ...heroHeadingStyles,
+export const title = {
+  ...heading,
   fontSize: {
     xs: '1.25rem',
     sm: '2rem',
@@ -36,8 +36,8 @@ export const heroTitleStyles = {
   },
 };
 
-export const heroSubtitleStyles = {
-  ...heroHeadingStyles,
+export const subtitle = {
+  ...heading,
   fontSize: {
     xs: '1rem',
     sm: '1.25rem',
@@ -47,14 +47,14 @@ export const heroSubtitleStyles = {
   },
 };
 
-export const heroTextLinkStyles = {
+export const textLink = {
   color: 'inherit',
   '&:hover': {
     color: '#636363',
   },
 };
 
-export const heroLinksWrapperStyles = {
+export const linksWrapper = {
   display: 'flex',
   justifyContent: 'center',
   my: 1,

@@ -1,10 +1,10 @@
 import { scriptFont } from './global.styles';
 
-export const footerWrapperStyles = {
+export const wrapper = {
   textAlign: 'center',
   py: 2,
 };
 
-export const footerLogoStyles = {
+export const logo = {
   fontFamily: scriptFont,
 };

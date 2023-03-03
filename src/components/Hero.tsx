@@ -1,30 +1,30 @@
 import React from 'react'
 import { Box, Container, IconButton, Typography } from '@mui/material';
 import { GitHub, LinkedIn, Send } from '@mui/icons-material';
-import { heroLinksWrapperStyles, heroWrapperStyles, profileImageStyles, heroContainerStyles, heroTextLinkStyles, heroTitleStyles, heroSubtitleStyles } from '../styles/hero.styles';
+import * as heroStyles from '../styles/hero.styles';
 
 const Hero: React.FC = () => {
   const currentJob = (
-    <Typography component='a' href='https://inquired.org' target='_blank' rel='noopener noreferrer' sx={heroTextLinkStyles}>
+    <Typography component='a' href='https://inquired.org' target='_blank' rel='noopener noreferrer' sx={heroStyles.textLink}>
       inquirED
     </Typography>
   );
 
   return (
-    <Container maxWidth='md' sx={heroContainerStyles}>
-      <Box sx={heroWrapperStyles}>
+    <Container maxWidth='md' sx={heroStyles.container}>
+      <Box sx={heroStyles.wrapper}>
         <Box
           component='img'
           src='./assets/profile.jpg'
           alt='A head shot of Joseph in Chicago, Illinois'
-          sx={profileImageStyles}
+          sx={heroStyles.profileImage}
         />
 
-        <Typography component='h4' variant='h4' sx={heroTitleStyles}>
+        <Typography component='h4' variant='h4' sx={heroStyles.title}>
           Joseph Perez
         </Typography>
 
-        <Typography component='h6' variant='h6' sx={heroSubtitleStyles}>
+        <Typography component='h6' variant='h6' sx={heroStyles.subtitle}>
           Web Developer & Photographer
         </Typography>
 
@@ -35,14 +35,14 @@ const Hero: React.FC = () => {
           When I'm not coding, I enjoy capturing the Pacific Northwest through film photography.
         </Typography>
 
-        <Box sx={heroLinksWrapperStyles}>
+        <Box sx={heroStyles.linksWrapper}>
           <IconButton color='inherit' href='https://github.com/p14' target='_blank' rel='noopener noreferrer'>
             <GitHub fontSize='large' />
           </IconButton>
           <IconButton color='inherit' href='https://linkedin.com/in/perezident14' target='_blank' rel='noopener noreferrer'>
             <LinkedIn fontSize='large' />
           </IconButton>
-          <IconButton color='inherit' href='mailto:joseph@p14.dev' target='_blank' rel='noopener noreferrer'>
+          <IconButton color='inherit' href='mailto:hello@p14.dev' target='_blank' rel='noopener noreferrer'>
             <Send fontSize='large' />
           </IconButton>
         </Box>

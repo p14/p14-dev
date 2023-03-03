@@ -8,7 +8,7 @@ export const standardFont = [
   'sans-serif',
 ].join(', ');
 
-export const appContainerStyles = {
+export const mainContainer = {
   display: 'flex',
   flexDirection: 'column',
   minHeight: {
