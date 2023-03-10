@@ -6,5 +6,6 @@ export const wrapper = {
 };
 
 export const logo = {
+  color: '#edae49',
   fontFamily: scriptFont,
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, ThemeProvider, createTheme } from '@mui/material';
 import Hero from './components/Hero';
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
 import * as appStyles from './styles/global.styles';
 
 const App: React.FC = () => {
@@ -15,7 +15,7 @@ const App: React.FC = () => {
     <ThemeProvider theme={theme}>
       <Box sx={appStyles.mainContainer}>
         <Hero />
-        <Footer />
+        {/* <Footer /> */}
       </Box>
     </ThemeProvider>
   );

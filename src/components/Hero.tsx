@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Container, IconButton, Typography } from '@mui/material';
+import { Box, Container, IconButton, Tooltip, Typography } from '@mui/material';
 import { GitHub, LinkedIn, Send } from '@mui/icons-material';
 import * as heroStyles from '../styles/hero.styles';
 
@@ -25,26 +25,32 @@ const Hero: React.FC = () => {
         </Typography>
 
         <Typography component='h6' variant='h6' sx={heroStyles.subtitle}>
-          Web Developer & Photographer
+          Freelance Software Developer
         </Typography>
 
-        <Typography variant='body1' color='black'>
+        <Typography variant='body1' color='inherit'>
           I'm based out of Seattle, Washington and I'm currently working at {currentJob}.
           I have a passion for building creative and functional websites.
-          I focus on writing efficient, maintainable, and scalable code.
+          I focus on writing scalable code and data solutions.
           When I'm not coding, I enjoy capturing the Pacific Northwest through film photography.
         </Typography>
 
         <Box sx={heroStyles.linksWrapper}>
-          <IconButton color='inherit' href='https://github.com/p14' target='_blank' rel='noopener noreferrer'>
-            <GitHub fontSize='large' />
-          </IconButton>
-          <IconButton color='inherit' href='https://linkedin.com/in/perezident14' target='_blank' rel='noopener noreferrer'>
-            <LinkedIn fontSize='large' />
-          </IconButton>
-          <IconButton color='inherit' href='mailto:hello@p14.dev' target='_blank' rel='noopener noreferrer'>
-            <Send fontSize='large' />
-          </IconButton>
+          <Tooltip title='GitHub'>
+            <IconButton color='inherit' href='https://github.com/p14' target='_blank' rel='noopener noreferrer' sx={heroStyles.link}>
+              <GitHub fontSize='large' />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title='LinkedIn'>
+            <IconButton color='inherit' href='https://linkedin.com/in/perezident14' target='_blank' rel='noopener noreferrer' sx={heroStyles.link}>
+              <LinkedIn fontSize='large' />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title='Email'>
+            <IconButton color='inherit' href='mailto:hello@p14.dev' target='_blank' rel='noopener noreferrer' sx={heroStyles.link}>
+              <Send fontSize='large' />
+            </IconButton>
+          </Tooltip>
         </Box>
       </Box>
     </Container>

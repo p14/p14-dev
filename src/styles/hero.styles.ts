@@ -21,6 +21,7 @@ export const profileImage = {
 };
 
 const heading = {
+  letterSpacing: '2px',
   my: 1,
   textTransform: 'uppercase',
 };
@@ -38,6 +39,7 @@ export const title = {
 
 export const subtitle = {
   ...heading,
+  color: '#669bbc',
   fontSize: {
     xs: '1rem',
     sm: '1.25rem',
@@ -50,7 +52,7 @@ export const subtitle = {
 export const textLink = {
   color: 'inherit',
   '&:hover': {
-    color: '#636363',
+    color: '#c1121f',
   },
 };
 
@@ -59,3 +61,9 @@ export const linksWrapper = {
   justifyContent: 'center',
   my: 1,
 };
+
+export const link = {
+  '&:hover': {
+    color: '#c1121f',
+  },
+}
