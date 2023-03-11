@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
             </IconButton>
           </Tooltip>
           <Tooltip title='LinkedIn'>
-            <IconButton color='inherit' href='https://linkedin.com/in/perezident14' target='_blank' rel='noopener noreferrer' sx={heroStyles.link}>
+            <IconButton color='inherit' href='https://linkedin.com/in/p14' target='_blank' rel='noopener noreferrer' sx={heroStyles.link}>
               <LinkedIn fontSize='large' />
             </IconButton>
           </Tooltip>
