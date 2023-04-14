@@ -1,0 +1,12 @@
+body {
+  background-color: #003049;
+  color: #fdf0d5;
+  margin: 0;
+  font-family: 'Montserrat', 'Roboto','Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
