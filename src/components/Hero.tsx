@@ -25,11 +25,11 @@ const Hero: React.FC = () => {
         </Typography>
 
         <Typography component='h6' variant='h6' sx={heroStyles.subtitle}>
-          Freelance Software Developer
+          Freelance Software Engineer
         </Typography>
 
         <Typography variant='body1' color='inherit'>
-          I'm based out of Seattle, Washington and I'm currently working at {currentJob}.
+          I'm based out of Seattle, Washington and I'm currently working full-time at {currentJob}.
           I have a passion for building creative and functional websites.
           I focus on writing scalable code and data solutions.
           When I'm not coding, I enjoy capturing the Pacific Northwest through film photography.
