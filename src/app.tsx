@@ -4,19 +4,19 @@ import Hero from './components/Hero';
 import * as appStyles from './styles/global.styles';
 
 const App: React.FC = () => {
-  const theme = createTheme({
-    typography: {
-      fontFamily: appStyles.standardFont,
-    }
-  });
+    const theme = createTheme({
+        typography: {
+            fontFamily: appStyles.standardFont,
+        }
+    });
 
-  return (
-    <ThemeProvider theme={theme}>
-      <Box sx={appStyles.mainContainer}>
-        <Hero />
-      </Box>
-    </ThemeProvider>
-  );
+    return (
+        <ThemeProvider theme={theme}>
+            <Box sx={appStyles.mainContainer}>
+                <Hero />
+            </Box>
+        </ThemeProvider>
+    );
 }
 
 export default App;
