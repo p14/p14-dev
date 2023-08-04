@@ -10,12 +10,6 @@ const Hero: React.FC = () => {
         </Typography>
     );
 
-    const mentorship = (
-        <Typography component='a' href='https://bobatalks.com' target='_blank' rel='noopener noreferrer' sx={heroStyles.textLink}>
-            Boba Talks
-        </Typography>
-    );
-
     return (
         <Container maxWidth='md' sx={heroStyles.container}>
             <Box sx={heroStyles.wrapper}>
@@ -37,7 +31,6 @@ const Hero: React.FC = () => {
                 <Typography variant='body1' color='inherit'>
                     I am based out of Charleston, SC and I am working full-time at {currentJob}.
                     I have a passion for building creative websites with scalable code and robust data solutions.
-                    I also provide 1-on-1 software engineering mentorship with {mentorship}.
                     Outside of tech, I enjoy capturing the East Coast through film photography and exploring local vintage shops.
                 </Typography>
 
