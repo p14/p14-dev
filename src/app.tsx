@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, ThemeProvider, createTheme } from '@mui/material';
+import { Container, ThemeProvider, createTheme } from '@mui/material';
 import Hero from './components/Hero';
-import * as appStyles from './styles/global.styles';
+import appStyles from './styles/global.styles';
 
 const App: React.FC = () => {
     const theme = createTheme({
@@ -12,9 +12,9 @@ const App: React.FC = () => {
 
     return (
         <ThemeProvider theme={theme}>
-            <Box sx={appStyles.mainContainer}>
+            <Container maxWidth='lg' sx={appStyles.mainContainer}>
                 <Hero />
-            </Box>
+            </Container>
         </ThemeProvider>
     );
 }

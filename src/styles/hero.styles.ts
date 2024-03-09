@@ -1,16 +1,16 @@
-export const container = {
+import { SxProps } from '@mui/material';
+
+const container: SxProps = {
+    alignItems: 'center',
     display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
     flexGrow: 1,
 };
 
-export const wrapper = {
+const wrapper: SxProps = {
     textAlign: 'center',
 };
 
-export const profileImage = {
-    border: '1px solid rgba(0, 0, 0, 0.12)',
+const profileImage: SxProps = {
     borderRadius: '50%',
     height: {
         xs: 200,
@@ -20,13 +20,13 @@ export const profileImage = {
     width: 'auto',
 };
 
-const heading = {
+const heading: SxProps = {
     letterSpacing: '2px',
     my: 1,
     textTransform: 'uppercase',
 };
 
-export const title = {
+const title: SxProps = {
     ...heading,
     fontSize: {
         xs: '1.25rem',
@@ -37,7 +37,7 @@ export const title = {
     },
 };
 
-export const subtitle = {
+const subtitle: SxProps = {
     ...heading,
     color: '#669bbc',
     fontSize: {
@@ -49,21 +49,32 @@ export const subtitle = {
     },
 };
 
-export const textLink = {
+const textLink: SxProps = {
     color: 'inherit',
     '&:hover': {
         color: '#c1121f',
     },
 };
 
-export const linksWrapper = {
+const linksWrapper: SxProps = {
     display: 'flex',
     justifyContent: 'center',
     my: 1,
 };
 
-export const link = {
+const link: SxProps = {
     '&:hover': {
         color: '#c1121f',
     },
-}
+};
+
+export default {
+    container,
+    wrapper,
+    profileImage,
+    title,
+    subtitle,
+    textLink,
+    linksWrapper,
+    link,
+};

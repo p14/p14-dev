@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Container, IconButton, Tooltip, Typography } from '@mui/material';
 import { GitHub, LinkedIn, Send } from '@mui/icons-material';
-import * as heroStyles from '../styles/hero.styles';
+import heroStyles from '../styles/hero.styles';
 
 const Hero: React.FC = () => {
     const currentJob = (
@@ -20,17 +20,17 @@ const Hero: React.FC = () => {
                     sx={heroStyles.profileImage}
                 />
 
-                <Typography component='h4' variant='h4' sx={heroStyles.title}>
+                <Typography component='h1' variant='h4' sx={heroStyles.title}>
                     Joseph Perez
                 </Typography>
 
                 <Typography component='h6' variant='h6' sx={heroStyles.subtitle}>
-                    Software Engineer
+                    Web Engineer
                 </Typography>
 
                 <Typography variant='body1' color='inherit'>
                     I am based out of Charleston, SC and I am working full-time at {currentJob}.
-                    I have a passion for building creative websites with scalable code and robust data solutions.
+                    I have a passion for learning about technologies and paradigms by building creative and engaging projects.
                     Outside of tech, I enjoy capturing the East Coast through film photography and exploring local vintage shops.
                 </Typography>
 
