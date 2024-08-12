@@ -1,4 +1,3 @@
-import React from 'react'
 import { Box, Container, IconButton, Tooltip, Typography } from '@mui/material';
 import { GitHub, LinkedIn, Send } from '@mui/icons-material';
 import heroStyles from '../styles/hero.styles';
@@ -24,13 +23,13 @@ const Hero: React.FC = () => {
                     Joseph Perez
                 </Typography>
 
-                <Typography component='h6' variant='h6' sx={heroStyles.subtitle}>
+                <Typography component='h2' variant='h6' sx={heroStyles.subtitle}>
                     Web Engineer
                 </Typography>
 
                 <Typography variant='body1' color='inherit'>
                     I am based out of Charleston, SC and I am working full-time at {currentJob}.
-                    I have a passion for learning about technologies and paradigms by building creative and engaging projects.
+                    I primarily focus on web systems and infrastructure, but love learning about different technologies and paradigms.
                     Outside of tech, I enjoy capturing the East Coast through film photography and exploring local vintage shops.
                 </Typography>
 

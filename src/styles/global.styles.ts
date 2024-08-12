@@ -1,10 +1,5 @@
 import { SxProps } from '@mui/material';
 
-const scriptFont = [
-    'Covered By Your Grace',
-    'sans-serif',
-].join(', ');
-
 const standardFont = [
     'Montserrat',
     'sans-serif',
@@ -17,7 +12,6 @@ const mainContainer: SxProps = {
 };
 
 export default {
-    scriptFont,
     standardFont,
     mainContainer,
 };

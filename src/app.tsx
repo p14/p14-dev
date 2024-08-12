@@ -1,4 +1,3 @@
-import React from 'react';
 import { Container, ThemeProvider, createTheme } from '@mui/material';
 import Hero from './components/Hero';
 import appStyles from './styles/global.styles';
