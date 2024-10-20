@@ -24,13 +24,13 @@ const Hero: React.FC = () => {
                 </Typography>
 
                 <Typography component='h2' variant='h6' sx={heroStyles.subtitle}>
-                    Web Engineer
+                    Software Engineer
                 </Typography>
 
                 <Typography variant='body1' color='inherit'>
                     I am based out of Charleston, SC and I am working full-time at {currentJob}.
                     I primarily focus on web systems and infrastructure, but love learning about different technologies and paradigms.
-                    Outside of tech, I enjoy capturing the East Coast through film photography and exploring local vintage shops.
+                    Outside of tech, I enjoy capturing life through film photography and exploring local vintage record / book shops.
                 </Typography>
 
                 <Box sx={heroStyles.linksWrapper}>
