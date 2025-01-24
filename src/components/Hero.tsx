@@ -4,10 +4,16 @@ import heroStyles from '../styles/hero.styles';
 
 const Hero: React.FC = () => {
     const currentJob = (
-        <Typography component='a' href='https://inquired.org' target='_blank' rel='noopener noreferrer' sx={heroStyles.textLink}>
-            inquirED
+        <Typography component='a' href='https://foliahealth.com' target='_blank' rel='noopener noreferrer' sx={heroStyles.textLink}>
+            Folia Health
         </Typography>
     );
+
+    const buttonInfo = [
+        { Icon: GitHub, href: 'https://github.com/p14', title: 'GitHub' },
+        { Icon: LinkedIn, href: 'https://linkedin.com/in/p14', title: 'LinkedIn' },
+        { Icon: Send, href: 'mailto:hello@p14.dev', title: 'Email' },
+    ];
 
     return (
         <Container maxWidth='md' sx={heroStyles.container}>
@@ -34,21 +40,13 @@ const Hero: React.FC = () => {
                 </Typography>
 
                 <Box sx={heroStyles.linksWrapper}>
-                    <Tooltip title='GitHub'>
-                        <IconButton color='inherit' href='https://github.com/p14' target='_blank' rel='noopener noreferrer' sx={heroStyles.link}>
-                            <GitHub fontSize='large' />
-                        </IconButton>
-                    </Tooltip>
-                    <Tooltip title='LinkedIn'>
-                        <IconButton color='inherit' href='https://linkedin.com/in/p14' target='_blank' rel='noopener noreferrer' sx={heroStyles.link}>
-                            <LinkedIn fontSize='large' />
-                        </IconButton>
-                    </Tooltip>
-                    <Tooltip title='Email'>
-                        <IconButton color='inherit' href='mailto:hello@p14.dev' target='_blank' rel='noopener noreferrer' sx={heroStyles.link}>
-                            <Send fontSize='large' />
-                        </IconButton>
-                    </Tooltip>
+                    {buttonInfo.map((info) => (
+                        <Tooltip title={info.title}>
+                            <IconButton color='inherit' href={info.href} target='_blank' rel='noopener noreferrer' sx={heroStyles.link}>
+                                <info.Icon fontSize='large' />
+                            </IconButton>
+                        </Tooltip>
+                    ))}
                 </Box>
             </Box>
         </Container>
