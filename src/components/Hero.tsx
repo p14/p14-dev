@@ -9,6 +9,12 @@ const Hero: React.FC = () => {
         </Typography>
     );
 
+    const freelanceJob = (
+        <Typography component='a' href='https://greygiant.com' target='_blank' rel='noopener noreferrer' sx={heroStyles.textLink}>
+            Grey Giant Technologies
+        </Typography>
+    );
+
     const buttonInfo = [
         { Icon: GitHub, href: 'https://github.com/p14', title: 'GitHub' },
         { Icon: LinkedIn, href: 'https://linkedin.com/in/p14', title: 'LinkedIn' },
@@ -20,8 +26,8 @@ const Hero: React.FC = () => {
             <Box sx={heroStyles.wrapper}>
                 <Box
                     component='img'
-                    src='./assets/profile.jpg'
-                    alt='A head shot of Joseph in Chicago, Illinois'
+                    src='./assets/profile.png'
+                    alt='A head shot of Joseph in Charleston, South Carolina'
                     sx={heroStyles.profileImage}
                 />
 
@@ -34,9 +40,9 @@ const Hero: React.FC = () => {
                 </Typography>
 
                 <Typography variant='body1' color='inherit'>
-                    I am based out of Charleston, SC and I am working full-time at {currentJob}.
-                    I primarily focus on web systems and infrastructure, but love learning about different technologies and paradigms.
-                    Outside of tech, I enjoy capturing life through film photography and exploring local vintage record / book shops.
+                    I am a software engineer based out of Charleston, SC.
+                    I work full-time at {currentJob} and I freelance as a web developer at {freelanceJob}.
+                    Outside of tech, I enjoy capturing life through film photography and exploring local record & book shops.
                 </Typography>
 
                 <Box sx={heroStyles.linksWrapper}>
