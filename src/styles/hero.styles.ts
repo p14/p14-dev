@@ -1,5 +1,9 @@
 import { SxProps } from '@mui/material';
 
+const accentColor = '#e7a597';
+
+const hoverColor = '#e7a597';
+
 const container: SxProps = {
     alignItems: 'center',
     display: 'flex',
@@ -8,16 +12,7 @@ const container: SxProps = {
 
 const wrapper: SxProps = {
     textAlign: 'center',
-};
-
-const profileImage: SxProps = {
-    borderRadius: '50%',
-    height: {
-        xs: 200,
-        sm: 300,
-    },
-    my: 2,
-    width: 'auto',
+    py: 2,
 };
 
 const heading: SxProps = {
@@ -28,10 +23,7 @@ const heading: SxProps = {
 
 const title: SxProps = {
     ...heading,
-    fontSize: {
-        xs: '1.25rem',
-        sm: '2rem',
-    },
+    fontSize: '2rem',
     fontWeight: {
         xs: 600,
     },
@@ -39,11 +31,8 @@ const title: SxProps = {
 
 const subtitle: SxProps = {
     ...heading,
-    color: '#669bbc',
-    fontSize: {
-        xs: '1rem',
-        sm: '1.25rem',
-    },
+    color: accentColor,
+    fontSize: '1.25rem',
     fontWeight: {
         xs: 600,
     },
@@ -52,7 +41,7 @@ const subtitle: SxProps = {
 const textLink: SxProps = {
     color: 'inherit',
     '&:hover': {
-        color: '#c1121f',
+        color: hoverColor,
     },
 };
 
@@ -64,14 +53,13 @@ const linksWrapper: SxProps = {
 
 const link: SxProps = {
     '&:hover': {
-        color: '#c1121f',
+        color: hoverColor,
     },
 };
 
 export default {
     container,
     wrapper,
-    profileImage,
     title,
     subtitle,
     textLink,

@@ -24,13 +24,6 @@ const Hero: React.FC = () => {
     return (
         <Container maxWidth='md' sx={heroStyles.container}>
             <Box sx={heroStyles.wrapper}>
-                <Box
-                    component='img'
-                    src='./assets/profile.png'
-                    alt='A head shot of Joseph in Charleston, South Carolina'
-                    sx={heroStyles.profileImage}
-                />
-
                 <Typography component='h1' variant='h4' sx={heroStyles.title}>
                     Joseph Perez
                 </Typography>
@@ -40,9 +33,9 @@ const Hero: React.FC = () => {
                 </Typography>
 
                 <Typography variant='body1' color='inherit'>
-                    I am a software engineer based out of Charleston, SC.
-                    I work full-time at {currentJob} and I freelance as a web developer at {freelanceJob}.
-                    Outside of tech, I enjoy capturing life through film photography and exploring local record & book shops.
+                    I am a software engineer based in Charleston, SC.
+                    I work full-time at {currentJob} and I do freelance web development at {freelanceJob}.
+                    Outside of tech, I enjoy capturing life through film photography and exploring vintage record stores & book shops.
                 </Typography>
 
                 <Box sx={heroStyles.linksWrapper}>

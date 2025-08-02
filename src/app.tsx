@@ -1,4 +1,4 @@
-import { Container, ThemeProvider, createTheme } from '@mui/material';
+import { Box, ThemeProvider, createTheme } from '@mui/material';
 import Hero from './components/Hero';
 import appStyles from './styles/global.styles';
 
@@ -11,9 +11,9 @@ const App: React.FC = () => {
 
     return (
         <ThemeProvider theme={theme}>
-            <Container maxWidth='lg' sx={appStyles.mainContainer}>
+            <Box sx={appStyles.mainContainer}>
                 <Hero />
-            </Container>
+            </Box>
         </ThemeProvider>
     );
 }

@@ -6,6 +6,7 @@ const standardFont = [
 ].join(', ');
 
 const mainContainer: SxProps = {
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
     display: 'flex',
     flexDirection: 'column',
     minHeight: '100dvh',
