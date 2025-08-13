@@ -24,6 +24,13 @@ const Hero: React.FC = () => {
     return (
         <Container maxWidth='md' sx={heroStyles.container}>
             <Box sx={heroStyles.wrapper}>
+                <Box
+                    component='img'
+                    src='./assets/pnw.jpg'
+                    alt='Joseph in Tacoma, Washington'
+                    sx={heroStyles.profileImage}
+                />
+
                 <Typography component='h1' variant='h4' sx={heroStyles.title}>
                     Joseph Perez
                 </Typography>

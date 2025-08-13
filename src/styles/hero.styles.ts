@@ -1,8 +1,8 @@
 import { SxProps } from '@mui/material';
 
-const accentColor = '#e7a597';
+const accentColor = '#669bbc';
 
-const hoverColor = '#e7a597';
+const hoverColor = '#c1121f';
 
 const container: SxProps = {
     alignItems: 'center',
@@ -13,6 +13,16 @@ const container: SxProps = {
 const wrapper: SxProps = {
     textAlign: 'center',
     py: 2,
+};
+
+const profileImage: SxProps = {
+    borderRadius: '50%',
+    height: {
+        xs: 200,
+        sm: 300,
+    },
+    my: 2,
+    width: 'auto',
 };
 
 const heading: SxProps = {
@@ -60,6 +70,7 @@ const link: SxProps = {
 export default {
     container,
     wrapper,
+    profileImage,
     title,
     subtitle,
     textLink,

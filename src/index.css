@@ -1,9 +1,6 @@
 body {
-    background-color: #8C271E;
-    background-image: url('/public/assets/background.jpg');
-    background-position: center;
-    background-size: cover;
-    color: #fff7e7;
+    background-color: #003049;
+    color: #fdf0d5;
     margin: 0;
     font-family: 'Montserrat', 'Roboto', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
