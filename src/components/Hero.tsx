@@ -4,8 +4,8 @@ import heroStyles from '../styles/hero.styles';
 
 const Hero: React.FC = () => {
     const currentJob = (
-        <Typography component='a' href='https://foliahealth.com' target='_blank' rel='noopener noreferrer' sx={heroStyles.textLink}>
-            Folia Health
+        <Typography component='a' href='https://www.collegeboard.org' target='_blank' rel='noopener noreferrer' sx={heroStyles.textLink}>
+            The College Board
         </Typography>
     );
 
