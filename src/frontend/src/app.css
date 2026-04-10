@@ -1,0 +1,35 @@
+.app-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem 0rem 1rem;
+}
+
+.hero-container {
+    margin-top: 4rem;
+    max-width: 600px;
+}
+
+.hero-header {
+    color: #999;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+    width: 100%;
+}
+
+.hero-footer {
+    color: #999;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4rem;
+    width: 100%;
+}
+
+.link-divider {
+    margin: 0rem 0.5rem;
+}
+
+.emoticon:hover {
+    cursor: pointer;
+    color: #fff;
+}

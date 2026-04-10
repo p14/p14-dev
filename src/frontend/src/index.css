@@ -1,0 +1,22 @@
+body {
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    font-family: Verdana, Geneva, sans-serif;
+    line-height: 1.5rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    color: orange;
+    text-underline-offset: 3px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
