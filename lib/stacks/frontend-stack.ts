@@ -39,8 +39,7 @@ export class FrontendStack extends cdk.Stack {
         this.siteBucket = new s3.Bucket(this, 'SiteBucket', {
             blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
             encryption: s3.BucketEncryption.S3_MANAGED,
-            removalPolicy: cdk.RemovalPolicy.DESTROY,       // safe for dev; change to RETAIN for prod
-            autoDeleteObjects: true,                         // cleans up when stack is destroyed
+            removalPolicy: cdk.RemovalPolicy.RETAIN,
         });
 
         // CloudFront distribution
