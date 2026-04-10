@@ -1,6 +1,56 @@
-# Deployment Guide
+# p14.dev — Personal Website
 
-## Prerequisites
+Personal website for [p14.dev](https://p14.dev), built with React + Vite and deployed on AWS using CDK (Cloud Development Kit) for infrastructure as code.
+
+## Tech Stack
+
+**Frontend**
+- React 19
+- TypeScript
+- Vite
+
+**Infrastructure (AWS CDK)**
+- Route 53 — DNS hosted zone
+- ACM — TLS certificate (auto-validated via DNS)
+- S3 — static asset storage
+- CloudFront — CDN / HTTPS distribution
+
+## Project Structure
+
+```
+p14-dev/
+├── lib/
+│   ├── stacks/
+│   │   ├── dns-stack.ts        # Route 53 hosted zone
+│   │   ├── frontend-stack.ts   # ACM cert, S3, CloudFront, DNS records
+│   │   └── pipeline-stack.ts   # CI/CD pipeline stack
+│   └── constructs/             # Reusable CDK constructs
+├── src/
+│   └── frontend/               # React + Vite app
+│       └── src/
+├── bin/                        # CDK app entry point
+├── cdk.json
+└── package.json
+```
+
+## Local Development
+
+```bash
+# Install CDK dependencies
+npm install
+
+# Install frontend dependencies
+cd src/frontend && npm install && cd ../..
+
+# Start the frontend dev server
+cd src/frontend && npm run dev
+```
+
+---
+
+## Deployment
+
+### Prerequisites
 
 | Tool | Check | Install |
 |---|---|---|
@@ -13,26 +63,26 @@ Bootstrap is a one-time step per AWS account/region.
 
 ---
 
-## Stack Overview
+### Stack Overview
 
 ```
-P14DnsStack         → Route 53 hosted zone for p14.app
+P14DnsStack         → Route 53 hosted zone for p14.dev
     ↓
 P14FrontendStack    → ACM cert, S3 bucket, CloudFront distribution, DNS records
 ```
 
 ---
 
-## First-Time Setup
+### First-Time Setup
 
-### 1. Install dependencies
+#### 1. Install dependencies
 
 ```bash
 npm install
 cd src/frontend && npm install && cd ../..
 ```
 
-### 2. Create `cdk.context.json`
+#### 2. Create `cdk.context.json`
 
 This file is gitignored — create it manually on any new machine:
 
@@ -42,7 +92,7 @@ This file is gitignored — create it manually on any new machine:
 }
 ```
 
-### 3. Deploy DNS
+#### 3. Deploy DNS
 
 ```bash
 npm run deploy:dns
@@ -50,15 +100,15 @@ npm run deploy:dns
 
 Copy the 4 nameserver values from the stack output and set them in Porkbun as your domain's nameservers.
 
-### 4. Wait for DNS propagation
+#### 4. Wait for DNS propagation
 
 ```bash
-dig NS p14.app +short
+dig NS p14.dev +short
 ```
 
 When you see AWS nameservers (`ns-XXX.awsdns-XX.com`), propagation is complete (usually a few minutes to an hour).
 
-### 5. Deploy the frontend stack
+#### 5. Deploy the frontend stack
 
 ```bash
 npm run deploy:frontend
@@ -70,7 +120,7 @@ Note the `SiteBucketName` and `DistributionDomain` from the outputs — you'll n
 
 ---
 
-## Deploying Frontend Changes
+### Deploying Frontend Changes
 
 After making changes in `src/frontend/src/`:
 
@@ -89,7 +139,7 @@ aws cloudfront create-invalidation --distribution-id DISTRIBUTION_ID --paths "/*
 
 ---
 
-## Deploying Infrastructure Changes
+### Deploying Infrastructure Changes
 
 ```bash
 npm run diff            # preview what will change
@@ -100,7 +150,7 @@ npm run deploy          # deploy all stacks
 
 ---
 
-## Useful Commands
+### Useful Commands
 
 ```bash
 # Preview CloudFormation templates without deploying
@@ -110,7 +160,7 @@ npm run synth
 aws sts get-caller-identity
 
 # Check DNS propagation
-dig NS p14.app +short
+dig NS p14.dev +short
 
 # Flush Mac DNS cache
 sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
@@ -118,7 +168,7 @@ sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
 
 ---
 
-## Troubleshooting
+### Troubleshooting
 
 **Certificate validation hangs** — Make sure DNS has propagated before deploying `P14FrontendStack`. ACM needs to create CNAME records in the hosted zone, which requires Route 53 to be authoritative.
 
