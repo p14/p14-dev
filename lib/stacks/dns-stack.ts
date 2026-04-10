@@ -42,17 +42,14 @@ export class DnsStack extends cdk.Stack {
             ttl,
         });
 
-        // SPF — authorises Purelymail servers to send on behalf of this domain
-        new route53.TxtRecord(this, 'SpfRecord', {
+        // Root TXT records — Route 53 requires all TXT values for the same name
+        // to live in a single record set, so SPF and ownership proof are combined here.
+        new route53.TxtRecord(this, 'RootTxtRecords', {
             zone: this.hostedZone,
-            values: ['v=spf1 include:_spf.purelymail.com ~all'],
-            ttl,
-        });
-
-        // Ownership proof required by Purelymail to confirm domain control
-        new route53.TxtRecord(this, 'PurelyMailOwnershipProof', {
-            zone: this.hostedZone,
-            values: ['purelymail_ownership_proof=beaa0d7195998118da362e0ff18824f790e69a40f65193e17f0078be8aa1243301f29937d74fa62c3d89ebd75b4713e43686f1c955bbf83e1033d38a82e8a978'],
+            values: [
+                'v=spf1 include:_spf.purelymail.com ~all',
+                'purelymail_ownership_proof=beaa0d7195998118da362e0ff18824f790e69a40f65193e17f0078be8aa1243301f29937d74fa62c3d89ebd75b4713e43686f1c955bbf83e1033d38a82e8a978',
+            ],
             ttl,
         });
 
