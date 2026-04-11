@@ -168,6 +168,21 @@ sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
 
 ---
 
+### CloudFront Plan
+
+The CloudFront distribution is on the **Free plan** ($0/month), set manually in the AWS Console. This is intentional.
+
+**Why it's set in the console, not CDK:** The CloudFront flat-rate plan is not yet modeled as a CloudFormation/CDK resource — it's managed through a separate AWS API. CDK has no property for it, so it won't appear in `cdk diff` and won't be reverted by `cdk deploy`.
+
+**If you ever run `cdk destroy` and redeploy from scratch**, the new distribution will default back to pay-as-you-go. You'll need to manually re-apply the Free plan in the console:
+> CloudFront → Distributions → [distribution ID] → Switch plan → Free
+
+**What the Free plan includes:** 1M requests / 100 GB per month, always-on DDoS protection, WAF, IP-based rate limiting, geographic blocking, and free TLS. DDoS attack traffic is absorbed at the edge and does not count against the monthly allowance.
+
+**Compatibility note:** The Free plan does not support custom origin response header policies. This stack doesn't use any, so there's no conflict — but don't add a `ResponseHeadersPolicy` to the distribution without checking plan compatibility first.
+
+---
+
 ### Troubleshooting
 
 **Certificate validation hangs** — Make sure DNS has propagated before deploying `P14FrontendStack`. ACM needs to create CNAME records in the hosted zone, which requires Route 53 to be authoritative.
