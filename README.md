@@ -1,195 +1,22 @@
-# p14.dev — Personal Website
+# Personal Website (p14.dev)
 
-Personal website for [p14.dev](https://p14.dev), built with React + Vite and deployed on AWS using CDK (Cloud Development Kit) for infrastructure as code.
+Personal website for Joseph Perez — [p14.dev](https://p14.dev).
 
-## Tech Stack
+## Stack
 
-**Frontend**
-- React 19
-- TypeScript
+- React 19 + TypeScript
 - Vite
+- Deployed via AWS CDK
 
-**Infrastructure (AWS CDK)**
-- Route 53 — DNS hosted zone
-- ACM — TLS certificate (auto-validated via DNS)
-- S3 — static asset storage
-- CloudFront — CDN / HTTPS distribution
-
-## Project Structure
-
-```
-p14-dev/
-├── lib/
-│   ├── stacks/
-│   │   ├── dns-stack.ts        # Route 53 hosted zone
-│   │   ├── frontend-stack.ts   # ACM cert, S3, CloudFront, DNS records
-│   │   └── pipeline-stack.ts   # CI/CD pipeline stack
-│   └── constructs/             # Reusable CDK constructs
-├── src/
-│   └── frontend/               # React + Vite app
-│       └── src/
-├── bin/                        # CDK app entry point
-├── cdk.json
-└── package.json
-```
-
-## Local Development
-
-```bash
-# Install CDK dependencies
-npm install
-
-# Install frontend dependencies
-cd src/frontend && npm install && cd ../..
-
-# Start the frontend dev server
-cd src/frontend && npm run dev
-```
-
----
-
-## Deployment
-
-### Prerequisites
-
-| Tool | Check | Install |
-|---|---|---|
-| AWS CLI | `aws --version` | via package manager |
-| CDK CLI | `cdk --version` | `npm install -g aws-cdk` |
-| AWS credentials | `aws sts get-caller-identity` | `aws configure` |
-| CDK bootstrapped | Check CloudFormation for `CDKToolkit` stack | `cdk bootstrap aws://ACCOUNT/REGION` |
-
-Bootstrap is a one-time step per AWS account/region.
-
----
-
-### Stack Overview
-
-```
-P14DnsStack         → Route 53 hosted zone for p14.dev
-    ↓
-P14FrontendStack    → ACM cert, S3 bucket, CloudFront distribution, DNS records
-```
-
----
-
-### First-Time Setup
-
-#### 1. Install dependencies
+## Development
 
 ```bash
 npm install
-cd src/frontend && npm install && cd ../..
+npm run dev
 ```
 
-#### 2. Create `cdk.context.json`
-
-This file is gitignored — create it manually on any new machine:
-
-```json
-{
-  "domain:name": "p14.dev"
-}
-```
-
-#### 3. Deploy DNS
+## Build
 
 ```bash
-npm run deploy:dns
-```
-
-Copy the 4 nameserver values from the stack output and set them in Porkbun as your domain's nameservers.
-
-#### 4. Wait for DNS propagation
-
-```bash
-dig NS p14.dev +short
-```
-
-When you see AWS nameservers (`ns-XXX.awsdns-XX.com`), propagation is complete (usually a few minutes to an hour).
-
-#### 5. Deploy the frontend stack
-
-```bash
-npm run deploy:frontend
-```
-
-This creates the ACM certificate (auto-validated via Route 53), S3 bucket, CloudFront distribution, and DNS A records. Certificate validation can take a few minutes.
-
-Note the `SiteBucketName` and `DistributionDomain` from the outputs — you'll need these to push frontend builds.
-
----
-
-### Deploying Frontend Changes
-
-After making changes in `src/frontend/src/`:
-
-```bash
-# Build
-cd src/frontend
 npm run build
-cd ../..
-
-# Sync to S3 (replace BUCKET_NAME from cdk deploy output)
-aws s3 sync src/frontend/dist/ s3://BUCKET_NAME --delete
-
-# Invalidate CloudFront cache (replace DISTRIBUTION_ID from cdk deploy output)
-aws cloudfront create-invalidation --distribution-id DISTRIBUTION_ID --paths "/*"
 ```
-
----
-
-### Deploying Infrastructure Changes
-
-```bash
-npm run diff            # preview what will change
-npm run deploy:dns      # deploy DNS stack only
-npm run deploy:frontend # deploy frontend stack only
-npm run deploy          # deploy all stacks
-```
-
----
-
-### Useful Commands
-
-```bash
-# Preview CloudFormation templates without deploying
-npm run synth
-
-# Check your current AWS identity
-aws sts get-caller-identity
-
-# Check DNS propagation
-dig NS p14.dev +short
-
-# Flush Mac DNS cache
-sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
-```
-
----
-
-### CloudFront Plan
-
-The CloudFront distribution is on the **Free plan** ($0/month), set manually in the AWS Console. This is intentional.
-
-**Why it's set in the console, not CDK:** The CloudFront flat-rate plan is not yet modeled as a CloudFormation/CDK resource — it's managed through a separate AWS API. CDK has no property for it, so it won't appear in `cdk diff` and won't be reverted by `cdk deploy`.
-
-**If you ever run `cdk destroy` and redeploy from scratch**, the new distribution will default back to pay-as-you-go. You'll need to manually re-apply the Free plan in the console:
-> CloudFront → Distributions → [distribution ID] → Switch plan → Free
-
-**What the Free plan includes:** 1M requests / 100 GB per month, always-on DDoS protection, WAF, IP-based rate limiting, geographic blocking, and free TLS. DDoS attack traffic is absorbed at the edge and does not count against the monthly allowance.
-
-**Compatibility note:** The Free plan does not support custom origin response header policies. This stack doesn't use any, so there's no conflict — but don't add a `ResponseHeadersPolicy` to the distribution without checking plan compatibility first.
-
----
-
-### Troubleshooting
-
-**Certificate validation hangs** — Make sure DNS has propagated before deploying `P14FrontendStack`. ACM needs to create CNAME records in the hosted zone, which requires Route 53 to be authoritative.
-
-**Site shows stale content** — CloudFront cache invalidation may be needed:
-```bash
-aws cloudfront create-invalidation --distribution-id DISTRIBUTION_ID --paths "/*"
-```
-
-**`cdk deploy` fails with credentials error** — Run `aws sts get-caller-identity` to verify your credentials are set up correctly.
