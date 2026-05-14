@@ -58,6 +58,14 @@ const Hero: React.FC = () => {
                     <a color='inherit' href='https://linkedin.com/in/p14' target='_blank' rel='noopener noreferrer'>
                         LinkedIn
                     </a>
+
+                    <span className='link-divider'>
+                        |
+                    </span>
+
+                    <a color='inherit' href='mailto:hello@p14.dev' target='_blank' rel='noopener noreferrer'>
+                        Email
+                    </a>
                 </div>
 
                 <span className='emoticon' onClick={handleBearClick}>
